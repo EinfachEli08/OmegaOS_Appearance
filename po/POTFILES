@@ -1,0 +1,6 @@
+data/org.omegaos.Appearance.desktop.in
+data/org.omegaos.Appearance.appdata.xml.in
+data/org.omegaos.Appearance.gschema.xml
+src/main.js
+src/window/window.js
+src/window/window.ui

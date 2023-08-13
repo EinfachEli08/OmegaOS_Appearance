@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+  <template class="AppearanceWindow" parent="AdwApplicationWindow">
+    <property name="width-request">450</property>
+    <property name="height-request">360</property>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="AdwHeaderBar">
+            <child type="start">
+              <object class="GtkMenuButton">
+                <property name="label" translatable="true">Import Config</property>
+              </object>
+            </child>
+            <child type="end">
+              <object class="GtkMenuButton">
+                <property name="icon-name">open-menu-symbolic</property>
+                <property name="menu-model">primary_menu</property>
+              </object>
+            </child>
+            <property name="centering-policy">1</property>
+            <property name="title-widget">
+              <object class="AdwViewSwitcherTitle" id="switcher_title">
+                <property name="stack">stack</property>
+                <property name="title" translatable="true">Appearance</property>
+              </object>
+            </property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwViewStack" id="stack">
+            <property name="vexpand">true</property>
+            <child>
+              <object class="AdwViewStackPage" id="page1">
+                <property name="name">page1</property>
+                <property name="title" translatable="true">Desktop Config</property>
+                <property name="icon-name">preferences-desktop-display-symbolic</property>
+                <property name="use-underline">true</property>
+                <property name="child">
+                  <object class="AdwStatusPage">
+                    <property name="title" bind-source="page1" bind-property="title" bind-flags="sync-create"/>
+                    <property name="description" translatable="true">Configure the Omega-Desktop to your personal liking</property>
+                    <property name="valign">1</property>
+                    <property name="margin-start">15</property>
+                    <property name="child">
+                      <object class="AdwClamp">
+                        <property name="maximum-size">800</property>
+                        <child>
+                          <object class="AdwPreferencesPage">
+                            <child>
+                              <object class="AdwPreferencesGroup">
+                                <property name="title" translatable="true">Desktop Theme</property>
+                                <property name="description" translatable="true">Manage the users Desktop Theme.</property>
+                                <child>
+                                  <object class="AdwComboRow">
+                                    <property name="title" translatable="true">Application Theme</property>
+                                    <property name="subtitle" translatable="true">The Libadwaita theme, also works on legacy apps, if adw-gtk3 is enabled</property>
+                                    <property name="model">
+                                      <object class="GtkStringList" id="list_2">
+                                        <items>
+                                          <item>default</item>
+                                          <item>ooh</item>
+                                          <item>look</item>
+                                          <item>at those</item>
+                                          <item>themes!!!</item>
+                                        </items>
+                                      </object>
+                                    </property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="AdwComboRow">
+                                    <property name="title" translatable="true">Shell Theme</property>
+                                    <property name="subtitle" translatable="true">Set the Gnome-Shell theme</property>
+                                    <property name="model">
+                                      <object class="GtkStringList" id="list_3">
+                                        <items>
+                                          <item>default</item>
+                                          <item>ooh</item>
+                                          <item>look</item>
+                                          <item>at those</item>
+                                          <item>themes!!!</item>
+                                        </items>
+                                      </object>
+                                    </property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="AdwComboRow">
+                                    <property name="title" translatable="true">Icon Theme</property>
+                                    <property name="subtitle" translatable="true">Set an Icon theme</property>
+                                    <property name="model">
+                                      <object class="GtkStringList" id="list_4">
+                                        <items>
+                                          <item>default</item>
+                                          <item>ooh</item>
+                                          <item>look</item>
+                                          <item>at those</item>
+                                          <item>themes!!!</item>
+                                        </items>
+                                      </object>
+                                    </property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="AdwComboRow">
+                                    <property name="title" translatable="true">Cursor Theme</property>
+                                    <property name="subtitle" translatable="true">Set a Cursor theme</property>
+                                    <property name="model">
+                                      <object class="GtkStringList" id="list_5">
+                                        <items>
+                                          <item>default</item>
+                                          <item>ooh</item>
+                                          <item>look</item>
+                                          <item>at those</item>
+                                          <item>themes!!!</item>
+                                        </items>
+                                      </object>
+                                    </property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="AdwComboRow">
+                                    <property name="title" translatable="true">Legacy Theme</property>
+                                    <property name="subtitle" translatable="true">Set a theme for legacy Applications (breaks consistency)</property>
+                                    <property name="model">
+                                      <object class="GtkStringList" id="list_6">
+                                        <items>
+                                          <item>default</item>
+                                          <item>ooh</item>
+                                          <item>look</item>
+                                          <item>at those</item>
+                                          <item>themes!!!</item>
+                                        </items>
+                                      </object>
+                                    </property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="AdwActionRow">
+                                    <property name="title" translatable="true">Additional Settings</property>
+                                    <property name="activatable">true</property>
+                                    <child type="suffix">
+                                      <object class="GtkImage">
+                                        <property name="icon-name">go-next-symbolic</property>
+                                        <style>
+                                          <class name="dim-label"/>
+                                        </style>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="AdwPreferencesGroup">
+                                <property name="title" translatable="true">Window Settings</property>
+                                <property name="description" translatable="true">Change the behaivour of Windows</property>
+                                <child>
+                                  <object class="AdwSwitchRow">
+                                    <property name="title" translatable="yes">Center new Windows</property>
+                                    <property name="subtitle" translatable="true">Wheter a new Window should launch in the middle of the Screen</property>
+                                    <signal name="notify::active" handler="switch_row_notify_active_cb"/>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="AdwComboRow">
+                                    <property name="title" translatable="true">Window Action Key</property>
+                                    <property name="subtitle" translatable="true">The button that when dragged on the window drags the window </property>
+                                    <property name="model">
+                                      <object class="GtkStringList" id="windowaction-list">
+                                        <items>
+                                          <item>Super (Default)</item>
+                                          <item>Alt</item>
+                                          <item>Ctrl</item>
+                                        </items>
+                                      </object>
+                                    </property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="AdwComboRow">
+                                    <property name="title" translatable="true">Choose the Window Buttons</property>
+                                    <property name="subtitle" translatable="true">Window Buttons are the Close, Minimize and Maximize Buttons</property>
+                                    <property name="model">
+                                      <object class="GtkStringList" id="button-list">
+                                        <items>
+                                          <item>OmegaOS-Default</item>
+                                          <item>OmegaOS-Default-left</item>
+                                          <item>Windows</item>
+                                          <item>Windows-left</item>
+                                          <item>...</item>
+                                        </items>
+                                      </object>
+                                    </property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="AdwEntryRow">
+                                    <property name="title" translatable="true">Window button Position</property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="AdwActionRow" id="subpage_row_1">
+                                    <property name="title" translatable="true">Additional Settings</property>
+                                    <property name="activatable">true</property>
+                                    <child type="suffix">
+                                      <object class="GtkImage">
+                                        <property name="icon-name">go-next-symbolic</property>
+                                        <style>
+                                          <class name="dim-label"/>
+                                        </style>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </property>
+                  </object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwViewStackPage" id="page2">
+                <property name="name">page2</property>
+                <property name="title" translatable="true">Login Config</property>
+                <property name="icon-name">system-lock-screen-symbolic</property>
+                <property name="use-underline">true</property>
+                <property name="child">
+                  <object class="AdwStatusPage">
+                    <property name="title" bind-source="page2" bind-property="title" bind-flags="sync-create"/>
+                    <property name="valign">1</property>
+                    <property name="margin-start">15</property>
+                    <property name="child">
+                      <object class="AdwClamp">
+                        <property name="maximum-size">500</property>
+                      </object>
+                    </property>
+                  </object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwViewStackPage" id="page3">
+                <property name="name">page3</property>
+                <property name="title" translatable="true">Extensions</property>
+                <property name="icon-name">application-x-addon-symbolic</property>
+                <property name="badge-number">0</property>
+                <property name="use-underline">true</property>
+                <property name="child">
+                  <object class="AdwStatusPage">
+                    <property name="title" bind-source="page3" bind-property="title" bind-flags="sync-create"/>
+                    <property name="valign">1</property>
+                    <property name="margin-start">15</property>
+                    <property name="margin-end">15</property>
+                    <property name="child">
+                      <object class="AdwClamp">
+                        <property name="maximum-size">500</property>
+                      </object>
+                    </property>
+                  </object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwViewStackPage" id="page4">
+                <property name="name">page4</property>
+                <property name="title" translatable="true">Configurations</property>
+                <property name="icon-name">applications-system-symbolic</property>
+                <property name="use-underline">true</property>
+                <property name="child">
+                  <object class="AdwStatusPage">
+                    <property name="title" bind-source="page4" bind-property="title" bind-flags="sync-create"/>
+                    <property name="valign">1</property>
+                    <property name="margin-start">15</property>
+                    <property name="child">
+                      <object class="AdwClamp">
+                        <property name="maximum-size">800</property>
+                        <child>
+                          <object class="AdwPreferencesPage">
+                            <child>
+                              <object class="AdwPreferencesGroup">
+                                <property name="title" translatable="true">Configurations</property>
+                                <child>
+                                  <object class="AdwActionRow">
+                                    <property name="title" translatable="true">Additional Settings</property>
+                                    
+                                    <property name="activatable">true</property>
+                                    <child type="suffix">
+                                      <object class="GtkImage">
+                                        <property name="icon-name">go-next-symbolic</property>
+                                        <style>
+                                          <class name="dim-label"/>
+                                        </style>
+                                      </object>
+                                      <object class="GtkImage">
+                                        <property name="icon-name">go-next-symbolic</property>
+                                        <style>
+                                          <class name="dim-label"/>
+                                        </style>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </property>
+                  </object>
+                </property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwViewSwitcherBar" id="switcher_bar">
+            <property name="stack">stack</property>
+            <property name="reveal" bind-source="switcher_title" bind-property="title-visible" bind-flags="sync-create"/>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+  <menu id="primary_menu">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">_Keyboard Shortcuts</attribute>
+        <attribute name="action">win.show-help-overlay</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_About Appearance</attribute>
+        <attribute name="action">app.about</attribute>
+      </item>
+    </section>
+  </menu>
+</interface>
